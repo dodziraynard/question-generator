@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>Auto-Question Generator</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+  <!-- Fontawesome -->
+  <link type="text/css" rel="stylesheet"
+    href="{{ url_for('static', filename='vendor/@fortawesome/fontawesome-free/css/all.min.css') }}">
+
+  <!-- Pixel CSS -->
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/pixel.css') }}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
+  <style>
+    body {
+      background-color: rgb(139, 179, 190);
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="text-center m-5">Auto-Question Generator</h1>
+  <div class="container"></div>
+
+  <div class="row align-items-center d-flex  justify-content-center">
+    <div class="col-12 mb-4">
+      <div class="card border-light shadow-sm components-section align-items-center d-flex  justify-content-center">
+        <div class="card-body align-items-center d-flex justify-content-center">
+          <div class="row mb-4">
+            <div class="col-lg-12 col-md-6 mx-auto">
+              <h3 class="h3 text-center">GENERATE QUESTIONS</h3>
+              <p class="text-center"><a href="{{url_for('tasks') }}">View previous generated questions</a></p>
+            </div>
+            <img src="https://communityleadership.org.uk/wp-content/uploads/2014/03/Question-Mark-Picture.jpg"
+              height="340px">
+            <div class="card-body">
+              <form method="POST">
+                <div class="mb-4">
+                  <div class="form-group">
+                    <label class="h6" for="text">Input Text</label>
+                    <textarea name="text" class="form-control" placeholder="Input Text?" rows="6" required></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label class="my-1 mr-2" for="question_type">Choose Question Type</label>
+                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="question_type"
+                      required>
+                        <option value="tf">True/False</option>
+                        <option value="mcqs">MCQs</option>
+                    </select>
+                  </div>
+                  <input type="submit" class="btn btn-primary" value="Generate">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer id="sticky-footer" class="py-4">
+    <div class="d-flex text-center justify-content-center align-items-center" role="contentinfo">
+    </div><br>
+  </footer>
+
+</body>
